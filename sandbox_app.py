@@ -17,6 +17,221 @@ st.set_page_config(
 )
 
 # ---------------------------------------------------------
+# GLOBAL STYLE
+# ---------------------------------------------------------
+
+st.markdown(
+    """
+    <style>
+
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+    html, body, [class*="css"] {
+        font-family: 'Inter', sans-serif;
+    }
+
+    :root {
+        --sandbox-primary: #0F6E5B;
+        --sandbox-primary-dark: #0A4F42;
+        --sandbox-accent: #1D8A8A;
+        --sandbox-bg: #F6F9F8;
+        --sandbox-card: #FFFFFF;
+        --sandbox-border: #E2E8E6;
+        --sandbox-text: #16241F;
+        --sandbox-muted: #5B6B66;
+    }
+
+    .stApp {
+        background-color: var(--sandbox-bg);
+    }
+
+    /* ---------- Sidebar ---------- */
+
+    section[data-testid="stSidebar"] {
+        background-color: var(--sandbox-primary-dark);
+        border-right: 1px solid var(--sandbox-border);
+    }
+
+    section[data-testid="stSidebar"] * {
+        color: #F2F7F5 !important;
+    }
+
+    section[data-testid="stSidebar"] .stCaption,
+    section[data-testid="stSidebar"] small {
+        color: #C7DAD4 !important;
+    }
+
+    section[data-testid="stSidebar"] hr {
+        border-color: rgba(255,255,255,0.15);
+    }
+
+    section[data-testid="stSidebar"] h1 {
+        font-weight: 800;
+        letter-spacing: -0.02em;
+    }
+
+    section[data-testid="stSidebar"] h3 {
+        font-size: 0.85rem;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        color: #B9D2CB !important;
+        font-weight: 700;
+        margin-top: 0.5rem;
+    }
+
+    section[data-testid="stSidebar"] .stSelectbox div[data-baseweb="select"] {
+        background-color: rgba(255,255,255,0.08);
+        border-radius: 8px;
+    }
+
+    section[data-testid="stSidebar"] label {
+        color: #EAF3F0 !important;
+    }
+
+    /* ---------- Headings ---------- */
+
+    h1 {
+        font-weight: 800 !important;
+        letter-spacing: -0.03em !important;
+        color: var(--sandbox-primary-dark) !important;
+    }
+
+    h2 {
+        font-weight: 700 !important;
+        letter-spacing: -0.01em !important;
+        color: var(--sandbox-text) !important;
+        margin-top: 1.75rem !important;
+        padding-bottom: 0.35rem;
+        border-bottom: 2px solid var(--sandbox-border);
+    }
+
+    h3 {
+        font-weight: 700 !important;
+        color: var(--sandbox-primary-dark) !important;
+    }
+
+    /* ---------- Metrics ---------- */
+
+    div[data-testid="stMetric"] {
+        background-color: var(--sandbox-card);
+        border: 1px solid var(--sandbox-border);
+        border-radius: 12px;
+        padding: 1rem 1.1rem 0.9rem 1.1rem;
+        box-shadow: 0 1px 2px rgba(16, 40, 34, 0.04);
+    }
+
+    div[data-testid="stMetric"] label {
+        color: var(--sandbox-muted) !important;
+        font-weight: 600;
+        font-size: 0.78rem;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+    }
+
+    div[data-testid="stMetricValue"] {
+        color: var(--sandbox-primary-dark);
+        font-weight: 800;
+    }
+
+    /* ---------- Buttons ---------- */
+
+    .stButton > button {
+        background-color: var(--sandbox-primary);
+        color: #FFFFFF;
+        border: none;
+        border-radius: 10px;
+        font-weight: 700;
+        padding: 0.65rem 1rem;
+        transition: background-color 0.15s ease-in-out;
+    }
+
+    .stButton > button:hover {
+        background-color: var(--sandbox-primary-dark);
+        color: #FFFFFF;
+    }
+
+    /* ---------- Alerts / info boxes ---------- */
+
+    div[data-testid="stAlert"] {
+        border-radius: 10px;
+        border: 1px solid var(--sandbox-border);
+    }
+
+    /* ---------- Caption / small text ---------- */
+
+    .stCaption, small {
+        color: var(--sandbox-muted) !important;
+    }
+
+    /* ---------- Top banner ---------- */
+
+    .sandbox-hero {
+        background: linear-gradient(135deg, var(--sandbox-primary-dark) 0%, var(--sandbox-accent) 100%);
+        border-radius: 16px;
+        padding: 1.75rem 2rem;
+        margin-bottom: 1.5rem;
+        box-shadow: 0 4px 14px rgba(15, 110, 91, 0.18);
+    }
+
+    .sandbox-hero h1 {
+        color: #FFFFFF !important;
+        margin: 0 0 0.25rem 0 !important;
+        font-size: 2.1rem !important;
+    }
+
+    .sandbox-hero p {
+        color: #E3F1EC;
+        margin: 0;
+        font-size: 1.02rem;
+    }
+
+    /* ---------- Section card wrapper ---------- */
+
+    .sandbox-card {
+        background-color: var(--sandbox-card);
+        border: 1px solid var(--sandbox-border);
+        border-radius: 14px;
+        padding: 1.4rem 1.6rem;
+        margin-bottom: 1.25rem;
+        box-shadow: 0 1px 2px rgba(16, 40, 34, 0.04);
+    }
+
+    .sandbox-ward-title {
+        font-size: 1.6rem;
+        font-weight: 800;
+        color: var(--sandbox-primary-dark);
+        margin-bottom: 0.15rem;
+    }
+
+    .sandbox-ward-sub {
+        color: var(--sandbox-muted);
+        font-size: 0.95rem;
+        margin-bottom: 0.75rem;
+    }
+
+    .sandbox-pill-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin-bottom: 0.4rem;
+    }
+
+    .sandbox-pill {
+        background-color: #EAF4F1;
+        color: var(--sandbox-primary-dark);
+        border: 1px solid #D3E9E2;
+        border-radius: 999px;
+        padding: 0.3rem 0.85rem;
+        font-size: 0.85rem;
+        font-weight: 600;
+    }
+
+    </style>
+    """,
+    unsafe_allow_html=True
+)
+
+# ---------------------------------------------------------
 # LOAD DATA
 # ---------------------------------------------------------
 
@@ -100,25 +315,35 @@ with st.sidebar:
 # MAIN HEADER
 # ---------------------------------------------------------
 
-st.title("Mini Sandbox AI")
-
-st.caption(
-    "Climate-resilient intervention simulation for Chennai wards"
+st.markdown(
+    """
+    <div class="sandbox-hero">
+        <h1>Mini Sandbox AI</h1>
+        <p>Climate-resilient intervention simulation for Chennai wards</p>
+    </div>
+    """,
+    unsafe_allow_html=True
 )
-
-st.divider()
 
 
 # ---------------------------------------------------------
 # WARD INFORMATION
 # ---------------------------------------------------------
 
-st.header(ward["ward_name_en"])
+st.markdown('<div class="sandbox-card">', unsafe_allow_html=True)
 
-st.caption(
-    f"Ward {int(ward['ward_number'])}  |  "
-    f"Zone: {ward['zone_name_en']}  |  "
-    f"Region: {ward['region_en']}"
+st.markdown(
+    f'<div class="sandbox-ward-title">{ward["ward_name_en"]}</div>',
+    unsafe_allow_html=True
+)
+
+st.markdown(
+    f'<div class="sandbox-ward-sub">'
+    f'Ward {int(ward["ward_number"])} &nbsp;|&nbsp; '
+    f'Zone: {ward["zone_name_en"]} &nbsp;|&nbsp; '
+    f'Region: {ward["region_en"]}'
+    f'</div>',
+    unsafe_allow_html=True
 )
 
 st.info(
@@ -126,6 +351,8 @@ st.info(
     f"Area: {ward['area_sqkm']:.2f} km²   |   "
     f"Coastal Zone: {ward['is_coastal_zone']}"
 )
+
+st.markdown('</div>', unsafe_allow_html=True)
 
 
 # ---------------------------------------------------------
@@ -280,10 +507,15 @@ if len(selected_interventions) == 0:
 
 else:
 
-    st.write("Selected interventions:")
-
-    for item in selected_interventions:
-        st.write(f"- {item}")
+    st.markdown(
+        '<div class="sandbox-pill-row">'
+        + "".join(
+            f'<span class="sandbox-pill">{item}</span>'
+            for item in selected_interventions
+        )
+        + '</div>',
+        unsafe_allow_html=True
+    )
 
     if st.button(
         "Run Simulation",
